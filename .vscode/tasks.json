@@ -1,42 +1,40 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Build Python Env",
-            "type": "shell",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "linux": {
-                "command": "python3 -m venv .venv --prompt comp_meth && source .venv/bin/activate && python3 -m pip install --upgrade pip && python3 -m pip install -r requirements.txt && deactivate .venv"
-            },
-            "osx": {
-                "command": "python3 -m venv .venv --prompt comp_meth && source .venv/bin/activate && python3 -m pip install --upgrade pip && python3 -m pip install -r requirements.txt && deactivate .venv"
-            },
-            "windows": {
-                "options": {
-                    "shell": {
-                        "executable": "C:\\Windows\\system32\\cmd.exe",
-                        "args": [
-                            "/d",
-                            "/c"
-                        ]
-                    }
-                },
-                "command": "(if not exist .venv py -m venv .venv --prompt comp_meth) && .\\.venv\\Scripts\\activate.bat && py -m pip install --upgrade pip && py -m pip install -r requirements.txt && deactivate .venv"
-            },
-            "problemMatcher": []
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Python Env",
+      "type": "shell",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "linux": {
+        "command": "python3 -m venv .venv --prompt comp_meth && source .venv/bin/activate && python3 -m pip install --upgrade pip && python3 -m pip install -r requirements.txt && deactivate .venv"
+      },
+      "osx": {
+        "command": "python3 -m venv .venv --prompt comp_meth && source .venv/bin/activate && python3 -m pip install --upgrade pip && python3 -m pip install -r requirements.txt && deactivate .venv"
+      },
+      "windows": {
+        "options": {
+          "shell": {
+            "executable": "C:\\Windows\\system32\\cmd.exe",
+            "args": ["/d", "/c"]
+          }
         },
-        {
-            "label": "echo",
-            "type": "shell",
-            "command": "echo Hello"
-        }
-    ]
+        "command": "(if not exist .venv python -m venv .venv --prompt comp_meth) && .\\.venv\\Scripts\\activate.bat && python -m pip install --upgrade pip && python -m pip install -r requirements.txt && deactivate .venv"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "echo",
+      "type": "shell",
+      "command": "echo Hello"
+    }
+  ]
 }
+
